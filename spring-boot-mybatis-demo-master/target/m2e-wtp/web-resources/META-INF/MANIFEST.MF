@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: zhongdian Maven Webapp
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: shaopeng
+Implementation-Vendor-Id: xyz.ibenben
+Build-Jdk: 1.8.0_91
+Implementation-URL: http://maven.aliyun.com/nexus/content/repositories
+ /central
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

@@ -10,31 +10,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import net.sf.json.JSONObject;
-import xyz.ibenben.zhongdian.system.entity.User;
-import xyz.ibenben.zhongdian.system.service.UserService;
+import xyz.ibenben.zhongdian.system.dao.TubiaoDAO;
+import xyz.ibenben.zhongdian.system.entity.Tubiao;
 
 @Controller
 public class UserController {
 	@Autowired
-	private UserService userService;
+	private TubiaoDAO tubiaoDAO;
 
 	@RequestMapping("/indexpage")
 	public String indexpage() {
 		return "rediester";
 	}
-	
-	@RequestMapping("/upUser")
-	public void upUser(int state){
-		System.out.println("============"+state);
-	}
 
-	@RequestMapping("/regiester")
+	@RequestMapping("/tubiao")
 	@ResponseBody
-	public String regiester() {
-		List<User> user = userService.listUser();
-		String[] categories = new String[user.size()];
-		Integer[] values = new Integer[user.size()];
-		Integer[] values2 = new Integer[user.size()];
+	public String tubiao() {
+		List<Tubiao> tubiao = tubiaoDAO.listTubiao();
+		String[] categories = new String[tubiao.size()];
+		Integer[] values = new Integer[tubiao.size()];
+		Integer[] values2 = new Integer[tubiao.size()];
+		for (int i = 0; i < tubiao.size(); i++) {
+			categories[i] = tubiao.get(i).getUsername();
+			values[i] = tubiao.get(i).getState();
+			values2[i] = tubiao.get(i).getState2();
+		}
 		Map<String, Object> json = new HashMap<String, Object>();
 		json.put("categories", categories);
 		json.put("values", values);

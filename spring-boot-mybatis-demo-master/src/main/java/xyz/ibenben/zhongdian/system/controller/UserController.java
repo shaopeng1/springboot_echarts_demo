@@ -14,14 +14,13 @@ import xyz.ibenben.zhongdian.system.entity.User;
 import xyz.ibenben.zhongdian.system.service.UserService;
 
 @Controller
-@RequestMapping("/system/user")
 public class UserController {
 	@Autowired
 	private UserService userService;
 
 	@RequestMapping("/indexpage")
 	public String indexpage() {
-		return "regiester";
+		return "rediester";
 	}
 	
 	@RequestMapping("/upUser")
@@ -36,11 +35,6 @@ public class UserController {
 		String[] categories = new String[user.size()];
 		Integer[] values = new Integer[user.size()];
 		Integer[] values2 = new Integer[user.size()];
-		for (int i = 0; i < user.size(); i++) {
-			categories[i] = user.get(i).getUsername();
-			values[i] = user.get(i).getState();
-			values2[i] = user.get(i).getState2();
-		}
 		Map<String, Object> json = new HashMap<String, Object>();
 		json.put("categories", categories);
 		json.put("values", values);

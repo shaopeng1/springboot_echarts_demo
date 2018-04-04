@@ -18,8 +18,4 @@ public class UserServiceImpl implements UserService{
 	public List<User> listUser() {
 		return userDao.selectByState();
 	}
-
-	public void upUser(int state) {
-		userDao.upUser(state);
-	}
 }

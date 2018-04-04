@@ -6,6 +6,5 @@ import xyz.ibenben.zhongdian.system.entity.User;
 
 public interface UserService {
 	public List<User> listUser();
-	
-	public void upUser(int state);
+
 }

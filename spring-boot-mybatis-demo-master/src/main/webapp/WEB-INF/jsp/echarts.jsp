@@ -11,13 +11,32 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.4.2.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/echarts.js"></script>
 <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
-
+<script type="text/javascript">
+$(function(){  
+	$.ajax({
+	    url:'${pageContext.request.contextPath}/quanxian',  
+        dataType:"json",  
+        type:'post', 
+        success:function(json){ 
+        	for (var i=0;i<json.perminsStrlist.length;i++)
+        	{
+               	var div = document.getElementById('quanxianList');
+               	var p = document.createElement('p');//创建p节点
+               	p.innerHTML = json.perminsStrlist[i];//p节点显示的文字
+               	div.appendChild(p);//往div中添加p节点
+        	}
+        }
+	})
+})
+</script>
 </head>
 <body>
-<%-- <shiro:authenticated>用户已经登录显示此内容<br/></shiro:authenticated><br/>
+ <shiro:authenticated>用户已经登录显示此内容<br/></shiro:authenticated><br/>
  <shiro:hasRole  name="admin">我是管理员</shiro:hasRole> 
- <shiro:hasRole name="normal">normal角色登录显示此内容<br/></shiro:hasRole><br/>
- <div id="main" style="width:100%; height:400px;"></div> --%>
+ <shiro:hasRole name="user">user角色登录显示此内容<br/></shiro:hasRole><br/>
+ <div id="quanxianList">
+ </div>
+ 
  <div id="main" style="width:100%; height:400px;"></div>
     <script type="text/javascript">
      $(function(){  
